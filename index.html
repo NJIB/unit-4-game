@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<html>
+
+<head>
+    <!-- For media queries-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta charset="UTF-8">
+    <title>NJIB Crystal Collector Game</title>
+
+    <!-- Link html to CSS reset -->
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+    ​
+    <!-- Link html to the Bootstrap CDN -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Link html to the CSS stylesheet -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <h1 id="topBanner">Crystal Collector</h1>
+    </header>
+
+    <!--Creating a div on the browser, to display the target number-->
+    <div id="targetNumber">TARGET NUMBER: </div>
+
+    <div class="crystalsDiv">
+        <div id="Crystal1" height = 150px width = 150px>
+            <img alt="Crystal1" src="https://via.placeholder.com/200">; 
+        </div>
+        <div id="Crystal2"  height = 150px width = 150px>
+            <img alt="Crystal2" src="https://via.placeholder.com/200">;
+        </div>
+        <div id="Crystal3"  height = 150px width = 150px>
+            <img alt="Crystal3" src="https://via.placeholder.com/200">;
+            </div>
+        <div id="Crystal4"  height = 150px width = 150px>
+            <img alt="Crystal4" src="https://via.placeholder.com/200">;
+            </div>
+            
+    </div>
+
+    <!--Creating a div on the browser, to display the scoreboard-->
+    <div class="game-container">
+        <div class="letter-container">
+            <div id="letterContainer"></div>
+        </div>
+        <div id="incorrect-letter-container">
+            <div id="incorrectGuessListTitle"></div>
+            <div id=incorrectGuessList></div>
+        </div>
+    </div>
+
+    <!--Link to game script-->
+    <script src="assets/javascript/game.js"></script>
+
+    <script type="text/javascript">
+
+    </script>
+
+    <footer class="footer mt-auto py-3">
+        <div class="container">
+            <span class="text-muted">Copyright &copy</span>
+        </div>
+    </footer>
+
+
+
+    <!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    ​
+    <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    ​
+</body>
+
+</html>
