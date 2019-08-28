@@ -13,6 +13,9 @@
 
     <!-- Link html to CSS reset -->
     <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+
+      <!-- Added link to the jQuery Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     ​
     <!-- Link html to the Bootstrap CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -32,36 +35,30 @@
 
     <!--Creating a div on the browser, to display the target number-->
     <div id="earthToMoon">
-        <div>Earth</div>
-        <div id="rocketTrack">Rocket Track</div>
+            <!-- <div img alt="Earth" src="assets/images/earth2.png" height = 150px width = 150px></div> -->
+            <div img alt="Earth" src="earth.png" height = 150px width = 150px></div>
+            <div id="rocketTrack">Rocket Track</div>
         <div id="targetNumber"></div>
     </div>
 
     <div class="crystalsDiv">
         <div id="Crystal1" height = 150px width = 150px>
-            <!-- <img alt="Crystal1" src="https://via.placeholder.com/200">;  -->
+                <!-- <button id="button-1" class="btn btn-primary number"><span>1</span></button> -->
+            <img alt="Crystal1" src="https://via.placeholder.com/100"> 
         </div>
-        <div id="Crystal2"  height = 150px width = 150px>
-            <img alt="Crystal2" src="https://via.placeholder.com/200">;
+        <div id="Crystal2" height = 150px width = 150px>
+                <!-- <button id="button-2" class="btn btn-primary number"><span>2</span></button> -->
+            <img alt="Crystal2" src="https://via.placeholder.com/100">
         </div>
-        <div id="Crystal3"  height = 150px width = 150px>
-            <img alt="Crystal3" src="https://via.placeholder.com/200">;
+        <div id="Crystal3" height = 150px width = 150px value="3">
+                <!-- <button id="button-3" class="btn btn-primary number"><span>3</span></button> -->
+            <img alt="Crystal3" src="https://via.placeholder.com/100">
             </div>
-        <div id="Crystal4"  height = 150px width = 150px>
-            <img alt="Crystal4" src="https://via.placeholder.com/200">;
+        <div id="Crystal4" height = 150px width = 150px value="4">
+                <!-- <button id="button-4" class="btn btn-primary number"><span>4</span></button> -->
+            <img alt="Crystal4" src="https://via.placeholder.com/100">
             </div>
             
-    </div>
-
-    <!--Creating a div on the browser, to display the scoreboard-->
-    <div class="game-container">
-        <div class="letter-container">
-            <div id="letterContainer"></div>
-        </div>
-        <div id="incorrect-letter-container">
-            <div id="incorrectGuessListTitle"></div>
-            <div id=incorrectGuessList></div>
-        </div>
     </div>
 
     <!--Link to game script-->

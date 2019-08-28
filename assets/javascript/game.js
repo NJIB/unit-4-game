@@ -1,16 +1,13 @@
+// $(document).ready(function () {
+
+
 var tgtNumber = 0;  // tgtNumber is the number the computer randomly selects, between 19 and 120
-var latestTotal = [];  // Holds the total of all numbers guessed so far
-// var crystalNumbers = {
-//     crystal1: 0,
-//     crystal2: 0,
-//     crystal3: 0,
-//     crystal4: 0
-// };
-var crystal1 = 0;
-var crystal2 = 0;
-var crystal3 = 0;
-var crystal4 = 0;
-var crysNumLog = [];
+var latestTotal = 0;  // Holds the total of all numbers guessed so far
+var crystal1 = 0;  //Score for crystal1
+var crystal2 = 0;  //Score for crystal2
+var crystal3 = 0;  //Score for crystal3
+var crystal4 = 0;  //Score for crystal4
+var crysNumLog = [];  //Stores the number already selected for previous crystals, so as not to duplicate
 
 
 
@@ -23,27 +20,46 @@ function chooseTgtNumber() {
     document.getElementById("targetNumber").innerHTML = tgtNumber;
 }
 
-function chooseCrystalNumber(crystal, crystalDiv) {
-    // while (crystal1 < 1) {
-    //     crystal1 = Math.floor(Math.random() * 11);
-    // }
-    //     console.log("crystal1:" + crystal1);
-    //     crysNumLog.push(crystal1);
-    //     console.log("crysNumLog (#1 pushed):" + crysNumLog)
-    //     //ASSIGN THIS NUMBER TO CRYSTAL 1
-    //     document.getElementById("Crystal1").innerHTML = crystal1;
-
-        while (crystal < 1  || crysNumLog.indexOf(crystal) > -1) {
-            crystal = Math.floor(Math.random() * 11);
+function chooseCrystalNumber(crystal) {
+        var crystalRdmNmbr = 0;
+        while (crystalRdmNmbr < 1  || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
+            crystalRdmNmbr = Math.floor(Math.random() * 11);
         }
-            crysNumLog.push(crystal);
-            console.log("crysNumLog:" + crysNumLog)
-            //ASSIGN THIS NUMBER TO CRYSTAL 1
-            document.getElementById(crystalDiv).innerHTML = crystal;
-    
+        console.log("crystalRdmNmbr: " + crystalRdmNmbr);
+        crysNumLog.push(crystalRdmNmbr);
+            console.log("crysNumLog:" + crysNumLog);
+            crystal = crystalRdmNmbr;
+            return crystal;
+            // document.getElementById(crystalDiv).innerHTML = crystal;    
 }
 
+    crystal1Div = $('#Crystal1');
+    crystal1Div.on('click', function (evt) {
+        latestTotal = latestTotal + crystal1;        ;
+      console.log("latestTotal:" + latestTotal);
+      checkWinLose();
+    })
 
+    crystal2Div = $('#Crystal2');
+    crystal2Div.on('click', function (evt) {
+        latestTotal = latestTotal + crystal2;        ;
+      console.log("latestTotal:" + latestTotal);
+      checkWinLose();
+    })
+
+    crystal3Div = $('#Crystal3');
+    crystal3Div.on('click', function (evt) {
+        latestTotal = latestTotal + crystal3;        ;
+      console.log("latestTotal:" + latestTotal);
+      checkWinLose();
+    })
+
+    crystal4Div = $('#Crystal4');
+    crystal4Div.on('click', function (evt) {
+        latestTotal = latestTotal + crystal4;        ;
+      console.log("latestTotal:" + latestTotal);
+      checkWinLose();
+    })
 
 function checkWinLose() {
     if (latestTotal < tgtNumber) {
@@ -53,6 +69,10 @@ function checkWinLose() {
             document.getElementById("rocketTrack").innerHTML = "You overshot!";
         }
 }
+
+
+
+
 
 // function displayUpdate(playerScoreCount, computerScoreCount) {
 //     document.getElementById("playerScore").innerHTML = playerScoreCount;
@@ -75,9 +95,9 @@ function checkWinLose() {
 
 // function playGame() {
     chooseTgtNumber();
-    chooseCrystalNumber(crystal1, "Crystal1");
-    chooseCrystalNumber(crystal2, "Crystal2");
-    chooseCrystalNumber(crystal3, "Crystal3");
-    chooseCrystalNumber(crystal4, "Crystal4");
-    
-    // }
+    crystal1 = chooseCrystalNumber();
+    crystal2 = chooseCrystalNumber();
+    crystal3 = chooseCrystalNumber();
+    crystal4 = chooseCrystalNumber();
+
+// }
