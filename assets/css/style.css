@@ -1,25 +1,27 @@
 @import url('https://fonts.googleapis.com/css?family=Mina&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Space+Mono&display=swap');
 
 
 
 header{
     display: grid;
-    grid-template-columns: 70% 30%;
+    grid-template-columns: 55% 45%;
     height: 100px;
-    font-family: 'Mina', sans-serif;
+    /* font-family: 'Mina', sans-serif; */
+    font-family: 'Space Mono', monospace;
     font-weight: bold;
     font-size: 50px;
-    line-height: 10px;
+    line-height: 30px;
     color: silver;
     text-align: left;
     padding: 10px;
 }
 
 body{
-    background-image: url("../images/spacebackground.jpg");
+    background-image: url("../images/spacebackground2.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 600px;
+    /* background-size: 100% 600px; */
+    background-size: 100%;
 }
 
 footer{
@@ -33,24 +35,53 @@ footer{
     color: black;
 }
 
+img {
+    z-index: 1;
+}
+
+
 #totalScore {
-    font-size: 35px;
+    font-size: 30px;
+}
+
+
+.score{
+    font-size: 75px;
 }
 
 #earthToMoon {
     height: 100px;
-    width: 100%;
+    width: 90%;
+    margin: auto;
     display: grid;
     grid-template-columns: 15% 70% 15%;
     text-align: center;
-    font-size: 40px;
     font-family: 'Mina', sans-serif;
     font-weight: bold;
     color: yellow;
+}
+
+#scoreBoard {
+    width: 90%;
+    height: 100px;
+    margin: 50px 5% 50px 5%;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: 10% 15% 40% 20% 15%;
+    text-align: center;
+    font-size: 25px;
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+    color: yellow;
+    line-height: 25px;
     /* Temporary for design purposes */
-    background-color:gold;
-    border-color: red;
-    border-style: solid;
+    /* background-color:gold; */
+}
+
+#scoreBoardMsg{
+    font-size: 40px;
+    color: orange;
+    text-align: center;
 }
 
 .crystalsDiv {

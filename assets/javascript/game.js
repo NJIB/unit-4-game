@@ -8,7 +8,7 @@ var crystal2 = 0;  //Score for crystal2
 var crystal3 = 0;  //Score for crystal3
 var crystal4 = 0;  //Score for crystal4
 var crysNumLog = [];  //Stores the number already selected for previous crystals, so as not to duplicate
-
+var latest = 0;
 
 
 // Computer randomly chooses a team
@@ -30,20 +30,21 @@ function chooseCrystalNumber(crystal) {
             console.log("crysNumLog:" + crysNumLog);
             crystal = crystalRdmNmbr;
             return crystal;
-            // document.getElementById(crystalDiv).innerHTML = crystal;    
 }
 
     crystal1Div = $('#Crystal1');
     crystal1Div.on('click', function (evt) {
         latestTotal = latestTotal + crystal1;        ;
-      console.log("latestTotal:" + latestTotal);
-      checkWinLose();
+        console.log("latestTotal:" + latestTotal);
+        displayUpdate(latestTotal);
+        checkWinLose();
     })
 
     crystal2Div = $('#Crystal2');
     crystal2Div.on('click', function (evt) {
         latestTotal = latestTotal + crystal2;        ;
       console.log("latestTotal:" + latestTotal);
+      displayUpdate(latestTotal);
       checkWinLose();
     })
 
@@ -51,6 +52,7 @@ function chooseCrystalNumber(crystal) {
     crystal3Div.on('click', function (evt) {
         latestTotal = latestTotal + crystal3;        ;
       console.log("latestTotal:" + latestTotal);
+      displayUpdate(latestTotal);
       checkWinLose();
     })
 
@@ -58,36 +60,24 @@ function chooseCrystalNumber(crystal) {
     crystal4Div.on('click', function (evt) {
         latestTotal = latestTotal + crystal4;        ;
       console.log("latestTotal:" + latestTotal);
+    //   document.getElementById("latest").innerHTML = latest;
+    displayUpdate(latestTotal);
       checkWinLose();
     })
 
 function checkWinLose() {
     if (latestTotal < tgtNumber) {
     } else if (latestTotal === tgtNumber) {
-            document.getElementById("rocketTrack").innerHTML = "You win!";
+            document.getElementById("scoreBoardMsg").innerHTML = "You win!";
         } else if (latestTotal > tgtNumber) {
-            document.getElementById("rocketTrack").innerHTML = "You overshot!";
+            document.getElementById("scoreBoardMsg").innerHTML = "You overshot!";
         }
 }
 
 
-
-
-
-// function displayUpdate(playerScoreCount, computerScoreCount) {
-//     document.getElementById("playerScore").innerHTML = playerScoreCount;
-//     document.getElementById("computerScore").innerHTML = computerScoreCount;
-//     if (totalGuessed < 1) {
-//         document.getElementById("letterContainer").innerHTML = blankDisplay;
-//     }
-//     else {
-//         document.getElementById("letterContainer").innerHTML = playerOutcome;
-//     }
-//     if (computerScoreCount > 0) {
-//         document.getElementById("incorrectGuessListTitle").innerHTML = "Incorrect guesses:  ";
-//         document.getElementById("incorrectGuessList").innerHTML = incorrectGuesses;
-//     }
-// }
+function displayUpdate(latest) {
+    document.getElementById("latest").innerHTML = latest;
+}
 
 
 //FUNCTION CALLS FOR PROGRAM EXECUTION   
