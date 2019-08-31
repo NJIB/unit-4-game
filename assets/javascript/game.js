@@ -13,70 +13,104 @@ var latest = 0;
 
 // Computer randomly chooses a team
 function chooseTgtNumber() {
-    // while (Number < 20) {
+    while (tgtNumber < 20) {
         tgtNumber = Math.floor(Math.random() * 121);
-    // }
+    }
     console.log("tgtNumber:" + tgtNumber);
-    document.getElementById("targetNumber").innerHTML = tgtNumber;
+    $("#targetNumber").html(tgtNumber);
+    // document.getElementById("targetNumber").innerHTML = tgtNumber;
 }
 
 function chooseCrystalNumber(crystal) {
-        var crystalRdmNmbr = 0;
-        while (crystalRdmNmbr < 1  || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
-            crystalRdmNmbr = Math.floor(Math.random() * 11);
-        }
-        console.log("crystalRdmNmbr: " + crystalRdmNmbr);
-        crysNumLog.push(crystalRdmNmbr);
-            console.log("crysNumLog:" + crysNumLog);
-            crystal = crystalRdmNmbr;
-            return crystal;
+    var crystalRdmNmbr = 0;
+    while (crystalRdmNmbr < 1 || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
+        crystalRdmNmbr = Math.floor(Math.random() * 11);
+    }
+    console.log("crystalRdmNmbr: " + crystalRdmNmbr);
+    crysNumLog.push(crystalRdmNmbr);
+    console.log("crysNumLog:" + crysNumLog);
+    crystal = crystalRdmNmbr;
+    return crystal;
 }
-
-    crystal1Div = $('#Crystal1');
-    crystal1Div.on('click', function (evt) {
-        latestTotal = latestTotal + crystal1;        ;
-        console.log("latestTotal:" + latestTotal);
-        displayUpdate(latestTotal);
-        checkWinLose();
-    })
-
-    crystal2Div = $('#Crystal2');
-    crystal2Div.on('click', function (evt) {
-        latestTotal = latestTotal + crystal2;        ;
-      console.log("latestTotal:" + latestTotal);
-      displayUpdate(latestTotal);
-      checkWinLose();
-    })
-
-    crystal3Div = $('#Crystal3');
-    crystal3Div.on('click', function (evt) {
-        latestTotal = latestTotal + crystal3;        ;
-      console.log("latestTotal:" + latestTotal);
-      displayUpdate(latestTotal);
-      checkWinLose();
-    })
-
-    crystal4Div = $('#Crystal4');
-    crystal4Div.on('click', function (evt) {
-        latestTotal = latestTotal + crystal4;        ;
-      console.log("latestTotal:" + latestTotal);
-    //   document.getElementById("latest").innerHTML = latest;
+crysDiv = $('.crystalsDiv');
+//When crystal is clicked...
+crysDiv.on('click', function (evt) {
+    //Add value of crystal to the latestTotal
+    // var x = $(this.attr(data-crystalnumber));
+    // console.log("this.attr = :" + x.value);
+    console.log(this);
+    latestTotal = latestTotal + crystal1;
+    console.log("latestTotal:" + latestTotal);
+    //Move shuttle
+    var shuttle = $("#shuttle");
+    shuttle.animate({ left: "+=200px" }, 3000);
+    //Print latestTotal to screen
     displayUpdate(latestTotal);
-      checkWinLose();
-    })
+    checkWinLose();
+  })
+
+// crystal1Div = $('#Crystal1');
+// //When crystal is clicked...
+// crystal1Div.on('click', function (evt) {
+//     //Add value of crystal to the latestTotal
+//     latestTotal = latestTotal + crystal1;
+//     console.log("latestTotal:" + latestTotal);
+//     shuttle.animate({ left: "+=50px" }, "normal");
+
+//     //Print latestTotal to screen
+//     displayUpdate(latestTotal);
+//     checkWinLose();
+// });
+// // })
+
+// crystal2Div = $('#Crystal2');
+// //When crystal is clicked...
+// crystal2Div.on('click', function (evt) {
+//     //Add value of crystal to the latestTotal
+//     latestTotal = latestTotal + crystal2;
+//     console.log("latestTotal:" + latestTotal);
+//     //Print latestTotal to screen
+//     displayUpdate(latestTotal);
+//     checkWinLose();
+// })
+
+// crystal3Div = $('#Crystal3');
+// //When crystal is clicked...
+// crystal3Div.on('click', function (evt) {
+//     //Add value of crystal to the latestTotal
+//     latestTotal = latestTotal + crystal3;
+//     console.log("latestTotal:" + latestTotal);
+//     //Print latestTotal to screen
+//     displayUpdate(latestTotal);
+//     checkWinLose();
+// })
+
+// crystal4Div = $('#Crystal4');
+// //When crystal is clicked...
+// crystal4Div.on('click', function (evt) {
+//     //Add value of crystal to the latestTotal
+//     latestTotal = latestTotal + crystal4;;
+//     console.log("latestTotal:" + latestTotal);
+//     //Print latestTotal to screen
+//     displayUpdate(latestTotal);
+//     checkWinLose();
+// })
 
 function checkWinLose() {
     if (latestTotal < tgtNumber) {
     } else if (latestTotal === tgtNumber) {
-            document.getElementById("scoreBoardMsg").innerHTML = "You win!";
-        } else if (latestTotal > tgtNumber) {
-            document.getElementById("scoreBoardMsg").innerHTML = "You overshot!";
-        }
+        $("#scoreBoardMsg").html("You win!");
+        // document.getElementById("scoreBoardMsg").innerHTML = "You win!";
+    } else if (latestTotal > tgtNumber) {
+        $("#scoreBoardMsg").html("You overshot!");
+        // document.getElementById("scoreBoardMsg").innerHTML = "You overshot!";
+    }
 }
 
 
 function displayUpdate(latest) {
-    document.getElementById("latest").innerHTML = latest;
+    $("#latest").html(latest);
+    // document.getElementById("latest").innerHTML = latest;
 }
 
 
@@ -84,10 +118,10 @@ function displayUpdate(latest) {
 // playGame()
 
 // function playGame() {
-    chooseTgtNumber();
-    crystal1 = chooseCrystalNumber();
-    crystal2 = chooseCrystalNumber();
-    crystal3 = chooseCrystalNumber();
-    crystal4 = chooseCrystalNumber();
+chooseTgtNumber();
+crystal1 = chooseCrystalNumber();
+crystal2 = chooseCrystalNumber();
+crystal3 = chooseCrystalNumber();
+crystal4 = chooseCrystalNumber();
 
 // }

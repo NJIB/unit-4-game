@@ -35,11 +35,6 @@ footer{
     color: black;
 }
 
-img {
-    z-index: 1;
-}
-
-
 #totalScore {
     font-size: 30px;
 }
@@ -60,6 +55,18 @@ img {
     font-weight: bold;
     color: yellow;
 }
+
+#shuttle{
+    position: absolute;
+    z-index: 1;
+}
+
+#moon{
+    /* position: absolute; */
+    /* right: 50px;
+    z-index: 2; */
+}
+
 
 #scoreBoard {
     width: 90%;
@@ -191,11 +198,6 @@ padding-right: 40px;
     .letter-container {
         font-size: 20px;
     }
-
-    #incorrect-letter-container {
-        font-size: 20px;
-        margin-top:20px;
-    }
 }
 
 @media screen and (max-width: 639px){
@@ -215,11 +217,6 @@ padding-right: 40px;
         font-size: 20px;
     }
 
-    #incorrect-letter-container {
-        font-size: 20px;
-        margin-top:20px;
-        padding: 0px;
-    }
 
 }
 
