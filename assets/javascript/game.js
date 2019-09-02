@@ -9,6 +9,7 @@ var crystal3 = 0;  //Score for crystal3
 var crystal4 = 0;  //Score for crystal4
 var crysNumLog = [];  //Stores the number already selected for previous crystals, so as not to duplicate
 var latest = 0;
+var crysVal = 0;
 
 
 // Computer randomly chooses a team
@@ -32,13 +33,25 @@ function chooseCrystalNumber(crystal) {
     crystal = crystalRdmNmbr;
     return crystal;
 }
-crysDiv = $('.crystalsDiv');
+// crysDiv = $('.crystalsDiv');
+// //When crystal is clicked...
+// crysDiv.on('click', function (evt) {
+//     //Add value of crystal to the latestTotal
+//     // console.log(crysDiv.attr("crystalnumber"));
+//     latestTotal = latestTotal + crystal1;
+//     console.log("latestTotal:" + latestTotal);
+//     //Move shuttle
+//     var shuttle = $("#shuttle");
+//     shuttle.animate({ left: "+=200px" }, 3000);
+//     //Print latestTotal to screen
+//     displayUpdate(latestTotal);
+//     checkWinLose();
+// })
+
+crystal1Div = $('#Crystal1');
 //When crystal is clicked...
-crysDiv.on('click', function (evt) {
+crystal1Div.on('click', function (evt) {
     //Add value of crystal to the latestTotal
-    // var x = $(this.attr(data-crystalnumber));
-    // console.log("this.attr = :" + x.value);
-    console.log(this);
     latestTotal = latestTotal + crystal1;
     console.log("latestTotal:" + latestTotal);
     //Move shuttle
@@ -47,54 +60,50 @@ crysDiv.on('click', function (evt) {
     //Print latestTotal to screen
     displayUpdate(latestTotal);
     checkWinLose();
-  })
-
-// crystal1Div = $('#Crystal1');
-// //When crystal is clicked...
-// crystal1Div.on('click', function (evt) {
-//     //Add value of crystal to the latestTotal
-//     latestTotal = latestTotal + crystal1;
-//     console.log("latestTotal:" + latestTotal);
-//     shuttle.animate({ left: "+=50px" }, "normal");
-
-//     //Print latestTotal to screen
-//     displayUpdate(latestTotal);
-//     checkWinLose();
-// });
-// // })
-
-// crystal2Div = $('#Crystal2');
-// //When crystal is clicked...
-// crystal2Div.on('click', function (evt) {
-//     //Add value of crystal to the latestTotal
-//     latestTotal = latestTotal + crystal2;
-//     console.log("latestTotal:" + latestTotal);
-//     //Print latestTotal to screen
-//     displayUpdate(latestTotal);
-//     checkWinLose();
+});
 // })
 
-// crystal3Div = $('#Crystal3');
-// //When crystal is clicked...
-// crystal3Div.on('click', function (evt) {
-//     //Add value of crystal to the latestTotal
-//     latestTotal = latestTotal + crystal3;
-//     console.log("latestTotal:" + latestTotal);
-//     //Print latestTotal to screen
-//     displayUpdate(latestTotal);
-//     checkWinLose();
-// })
+crystal2Div = $('#Crystal2');
+//When crystal is clicked...
+crystal2Div.on('click', function (evt) {
+    //Add value of crystal to the latestTotal
+    latestTotal = latestTotal + crystal2;
+    console.log("latestTotal:" + latestTotal);
+    //Move shuttle
+    var shuttle = $("#shuttle");
+    shuttle.animate({ left: "+=200px" }, 3000);
+    //Print latestTotal to screen
+    displayUpdate(latestTotal); v
+    checkWinLose();
+})
 
-// crystal4Div = $('#Crystal4');
-// //When crystal is clicked...
-// crystal4Div.on('click', function (evt) {
-//     //Add value of crystal to the latestTotal
-//     latestTotal = latestTotal + crystal4;;
-//     console.log("latestTotal:" + latestTotal);
-//     //Print latestTotal to screen
-//     displayUpdate(latestTotal);
-//     checkWinLose();
-// })
+crystal3Div = $('#Crystal3');
+//When crystal is clicked...
+crystal3Div.on('click', function (evt) {
+    //Add value of crystal to the latestTotal
+    latestTotal = latestTotal + crystal3;
+    console.log("latestTotal:" + latestTotal);
+    //Move shuttle
+    var shuttle = $("#shuttle");
+    shuttle.animate({ left: "+=200px" }, 3000);
+    //Print latestTotal to screen
+    displayUpdate(latestTotal);
+    checkWinLose();
+})
+
+crystal4Div = $('#Crystal4');
+//When crystal is clicked...
+crystal4Div.on('click', function (evt) {
+    //Add value of crystal to the latestTotal
+    latestTotal = latestTotal + crystal4;;
+    console.log("latestTotal:" + latestTotal);
+    //Move shuttle
+    var shuttle = $("#shuttle");
+    shuttle.animate({ left: "+=200px" }, 3000);
+    //Print latestTotal to screen
+    displayUpdate(latestTotal);
+    checkWinLose();
+})
 
 function checkWinLose() {
     if (latestTotal < tgtNumber) {
