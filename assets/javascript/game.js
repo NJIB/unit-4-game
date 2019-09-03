@@ -8,18 +8,19 @@ var crystal2 = 0;  //Score for crystal2
 var crystal3 = 0;  //Score for crystal3
 var crystal4 = 0;  //Score for crystal4
 var crysNumLog = [];  //Stores the number already selected for previous crystals, so as not to duplicate
-var latest = 0;
-var crysVal = 0;
+var shuttleDistance = 0; //Distance shuttle will move with an individual crystal click
+var gamesWon = 0;  //Stores hi score
+var totalScore = 0; //Cumulative total score
 
 
 // Computer randomly chooses a team
 function chooseTgtNumber() {
+    tgtNumber = 0;
     while (tgtNumber < 20) {
         tgtNumber = Math.floor(Math.random() * 121);
     }
     console.log("tgtNumber:" + tgtNumber);
     $("#targetNumber").html(tgtNumber);
-    // document.getElementById("targetNumber").innerHTML = tgtNumber;
 }
 
 function chooseCrystalNumber(crystal) {
@@ -27,9 +28,11 @@ function chooseCrystalNumber(crystal) {
     while (crystalRdmNmbr < 1 || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
         crystalRdmNmbr = Math.floor(Math.random() * 11);
     }
-    console.log("crystalRdmNmbr: " + crystalRdmNmbr);
     crysNumLog.push(crystalRdmNmbr);
-    console.log("crysNumLog:" + crysNumLog);
+    //Log crystal values
+    if (crysNumLog.length === 4) {
+        console.log("crysNumLog:" + crysNumLog);
+    }
     crystal = crystalRdmNmbr;
     return crystal;
 }
@@ -51,76 +54,130 @@ function chooseCrystalNumber(crystal) {
 crystal1Div = $('#Crystal1');
 //When crystal is clicked...
 crystal1Div.on('click', function (evt) {
-    //Add value of crystal to the latestTotal
-    latestTotal = latestTotal + crystal1;
-    console.log("latestTotal:" + latestTotal);
-    //Move shuttle
-    var shuttle = $("#shuttle");
-    shuttle.animate({ left: "+=200px" }, 3000);
-    //Print latestTotal to screen
-    displayUpdate(latestTotal);
-    checkWinLose();
+    if (latestTotal < tgtNumber) {
+        //Add value of crystal to the latestTotal
+        latestTotal = latestTotal + crystal1;
+        console.log("latestTotal:" + latestTotal);
+        //Move shuttle
+        animateShuttle();
+        //Print latestTotal to screen
+        displayUpdate(latestTotal);
+        checkWinLose();
+    }
 });
-// })
 
 crystal2Div = $('#Crystal2');
 //When crystal is clicked...
 crystal2Div.on('click', function (evt) {
-    //Add value of crystal to the latestTotal
-    latestTotal = latestTotal + crystal2;
-    console.log("latestTotal:" + latestTotal);
-    //Move shuttle
-    var shuttle = $("#shuttle");
-    shuttle.animate({ left: "+=200px" }, 3000);
-    //Print latestTotal to screen
-    displayUpdate(latestTotal); v
-    checkWinLose();
+    if (latestTotal < tgtNumber) {
+        //Add value of crystal to the latestTotal
+        latestTotal = latestTotal + crystal2;
+        console.log("latestTotal:" + latestTotal);
+        //Move shuttle
+        animateShuttle();
+        //Print latestTotal to screen
+        displayUpdate(latestTotal);
+        checkWinLose();
+    }
 })
 
 crystal3Div = $('#Crystal3');
 //When crystal is clicked...
 crystal3Div.on('click', function (evt) {
-    //Add value of crystal to the latestTotal
-    latestTotal = latestTotal + crystal3;
-    console.log("latestTotal:" + latestTotal);
-    //Move shuttle
-    var shuttle = $("#shuttle");
-    shuttle.animate({ left: "+=200px" }, 3000);
-    //Print latestTotal to screen
-    displayUpdate(latestTotal);
-    checkWinLose();
+    if (latestTotal < tgtNumber) {
+        //Add value of crystal to the latestTotal
+        latestTotal = latestTotal + crystal3;
+        console.log("latestTotal:" + latestTotal);
+        //Move shuttle
+        animateShuttle();
+        //Print latestTotal to screen
+        displayUpdate(latestTotal);
+        checkWinLose();
+    }
 })
 
 crystal4Div = $('#Crystal4');
 //When crystal is clicked...
 crystal4Div.on('click', function (evt) {
-    //Add value of crystal to the latestTotal
-    latestTotal = latestTotal + crystal4;;
-    console.log("latestTotal:" + latestTotal);
-    //Move shuttle
-    var shuttle = $("#shuttle");
-    shuttle.animate({ left: "+=200px" }, 3000);
-    //Print latestTotal to screen
-    displayUpdate(latestTotal);
-    checkWinLose();
+    if (latestTotal < tgtNumber) {
+        //Add value of crystal to the latestTotal
+        latestTotal = latestTotal + crystal4;
+        console.log("latestTotal:" + latestTotal);
+        //Move shuttle
+        animateShuttle();
+        //Print latestTotal to screen
+        displayUpdate(latestTotal);
+        checkWinLose();
+    }
 })
 
 function checkWinLose() {
+    // Check if targetNumber reached or exceeded
     if (latestTotal < tgtNumber) {
+        //Win message
     } else if (latestTotal === tgtNumber) {
         $("#scoreBoardMsg").html("You win!");
-        // document.getElementById("scoreBoardMsg").innerHTML = "You win!";
+        gamesWon++;
+        $("#totalScore").html("Games won: " + gamesWon);
+        // Show Play Again button
+        $("#restartButton").fadeIn("slow", function () {
+            // Animation complete
+        });
+        // Lose message
     } else if (latestTotal > tgtNumber) {
         $("#scoreBoardMsg").html("You overshot!");
-        // document.getElementById("scoreBoardMsg").innerHTML = "You overshot!";
+        // Show Play Again button
+        $("#restartButton").fadeIn("slow", function () {
+            // Animation complete
+        });
     }
 }
 
+function animateShuttle() {
+    var rocketToMoonPosition = $("#rocketToMoon").position();
+    console.log("rocketToMoonContainer position:" + rocketToMoonPosition.left + rocketToMoonPosition.top);
+    var moonContPosition = $("#moonContainer").position();
+    console.log("moonContainer position:" + moonContPosition.left + moonContPosition.top);
+    var rocketTrackLength = parseInt((moonContPosition.left - rocketToMoonPosition.left) - 80);
+    console.log("rocketTrackLength:" + rocketTrackLength);
+    //Move shuttle
+    var shuttlePosition = $("#shuttle").position();
+    console.log("Shuttle position:" + shuttlePosition.left);
+    shuttleDistance = parseInt((latestTotal / tgtNumber) * rocketTrackLength);
+    console.log("ShuttleDistance:" + shuttleDistance);
+    var shuttle = $("#shuttle");
+    $("#shuttle").animate({ left: shuttleDistance }, 500);
+}
+
+pressToRestart = $('#restartButton');
+pressToRestart.on('click', function (evt) {
+    // Reset won/lose message
+    var blankDisplay = [];
+    $("#scoreBoardMsg").html(blankDisplay);
+    // Select new target and crystal numbers
+    chooseTgtNumber();
+    crystal1 = chooseCrystalNumber();
+    crystal2 = chooseCrystalNumber();
+    crystal3 = chooseCrystalNumber();
+    crystal4 = chooseCrystalNumber();
+    // Move shuttle back to starting position
+    $("#shuttle").animate({ left: "-0px" }, 2000);
+    //Reset scoreboard
+    latestTotal = 0;
+    $("#latest").html(latestTotal);
+    // Reset shuttle position counter
+    shuttleDistance = 0;
+    // Hide Play Again button
+    $("#restartButton").fadeOut("slow", function () {
+    });
+})
+
+
+
 
 function displayUpdate(latest) {
-    $("#latest").html(latest);
-    // document.getElementById("latest").innerHTML = latest;
-}
+        $("#latest").html(latest);
+    }
 
 
 //FUNCTION CALLS FOR PROGRAM EXECUTION   

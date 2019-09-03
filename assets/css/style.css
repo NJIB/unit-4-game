@@ -4,9 +4,9 @@
 
 
 header{
-    display: grid;
-    grid-template-columns: 55% 45%;
-    height: 100px;
+    /* display: grid;
+    grid-template-columns: 55% 45%, 55% 45%; */
+    height: 120px;
     /* font-family: 'Mina', sans-serif; */
     font-family: 'Space Mono', monospace;
     font-weight: bold;
@@ -39,21 +39,8 @@ footer{
     font-size: 30px;
 }
 
-
 .score{
     font-size: 75px;
-}
-
-#earthToMoon {
-    height: 100px;
-    width: 90%;
-    margin: auto;
-    display: grid;
-    grid-template-columns: 15% 70% 15%;
-    text-align: center;
-    font-family: 'Mina', sans-serif;
-    font-weight: bold;
-    color: yellow;
 }
 
 #shuttle{
@@ -62,33 +49,50 @@ footer{
 }
 
 #moon{
-    /* position: absolute; */
-    /* right: 50px;
-    z-index: 2; */
+    position: absolute;
+    right: 40px;
 }
 
+#earth{
+    position: absolute;
+    left: 40px;
+}
 
 #scoreBoard {
-    width: 90%;
-    height: 100px;
-    margin: 50px 5% 50px 5%;
+    position: relative;
+    top:100px;
+    height: 60px;
     box-sizing: border-box;
-    display: grid;
-    grid-template-columns: 10% 15% 40% 20% 15%;
     text-align: center;
     font-size: 25px;
     font-family: 'Mina', sans-serif;
     font-weight: bold;
     color: yellow;
     line-height: 25px;
-    /* Temporary for design purposes */
-    /* background-color:gold; */
+}
+
+#latest {
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+    font-size: 75px;
+    color: yellow;
+    line-height: 25px;
+}
+
+#targetNumber {
+    font-family: 'Mina', sans-serif;
+    font-weight: bold;
+    font-size: 75px;
+    color: yellow;
+    line-height: 25px;
 }
 
 #scoreBoardMsg{
-    font-size: 40px;
+    font-size: 50px;
     color: orange;
+    font-weight: bold;
     text-align: center;
+    line-height: 50px;
 }
 
 .crystalsDiv {
@@ -100,77 +104,15 @@ footer{
     font-size: 35px;
     color: yellow;
 }
-/* 
-#teamBadge {
-    position: relative;
-    top: -15px; */
-    /* width: 185px; */
-    /* margin-left: auto;
-    margin-right: auto;
-    display: none;
-} */
 
-/* #goalKeeper {
-    position: relative;
-    top: 120px;
-    margin-left: 100px; */
-    /* display: none; */
-    /* font-family: 'Bungee Inline', cursive;
-    color: yellow;
-} */
-
-#pressToRestart {
-    position: relative;
-    top: 90px;
-    height: 70px;
-    width: 250px;
-    background: white;
-    display: none;
-    font-family: 'Bungee Inline', cursive;
-    color: orange;
-    font-size: 30px;
-    padding-left: 15px;
+#restartButton {
+    height: 100px;
+    width: 100px;
     text-align: center;
-}
-
-.game-container {
-    position: absolute;
-    top: 65%;
-    box-sizing: border-box;
-    width: 100%;
-    margin: auto;
-    z-index: 1;
-}
-
-.letter-container {
-    width: 100%;
-    /* margin: auto; */
-    text-align: center;
-    color: yellow;
-    font-size: 30px;
+    font-size: 25px;
     font-weight: bold;
-    padding: 20px;
+    display: none;
 }
-
-#incorrect-letter-container {
-    display: grid;
-    box-sizing: border-box;
-    width: 80%;
-    margin: auto;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto;
-    text-align: left;
-    color: yellow;
-    font-size: 30px;
-    font-weight: bold;
-    padding: 20px;
-}
-
-#incorrectGuessListTitle {
-text-align: right;
-padding-right: 40px;
-}
-
 
 @media screen and (max-width: 979px){
     .container{width: 100%;}
@@ -195,11 +137,6 @@ padding-right: 40px;
         font-size: 25px;
     }
 
-    .letter-container {
-        font-size: 20px;
-    }
-}
-
 @media screen and (max-width: 639px){
     .container{width: 580px;}
     .scoreBoard-container {
@@ -211,10 +148,6 @@ padding-right: 40px;
 
     h1 {
         font-size: 25px;
-    }
-
-    .letter-container {
-        font-size: 20px;
     }
 
 
