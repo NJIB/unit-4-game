@@ -9,20 +9,23 @@ var crystal3 = 0;  //Score for crystal3
 var crystal4 = 0;  //Score for crystal4
 var crysNumLog = [];  //Stores the number already selected for previous crystals, so as not to duplicate
 var shuttleDistance = 0; //Distance shuttle will move with an individual crystal click
-var gamesWon = 0;  //Stores hi score
-var totalScore = 0; //Cumulative total score
+var gamesWon = 0;  //Stores games won
+var gamesLost = 0;  //Stores games lost
 
-
-// Computer randomly chooses a team
+// Computer randomly chooses a target number
 function chooseTgtNumber() {
+    // Clears target number from previous plays
     tgtNumber = 0;
+    // Target number must be above 19 and less than 120
     while (tgtNumber < 20) {
         tgtNumber = Math.floor(Math.random() * 121);
     }
     console.log("tgtNumber:" + tgtNumber);
+    //Target number displayed to the screen
     $("#targetNumber").html(tgtNumber);
 }
 
+    // Random number assigned to each of the 4 crystals
 function chooseCrystalNumber(crystal) {
     var crystalRdmNmbr = 0;
     while (crystalRdmNmbr < 1 || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
@@ -116,19 +119,15 @@ function checkWinLose() {
         $("#scoreBoardMsg").html("You win!");
         gamesWon++;
         $("#gamesWon").html("Games won: " + gamesWon);
-        // Show Play Again button
-        $("#restartButton").fadeIn("slow", function () {
-            // Animation complete
-        });
+        //Restart game
+        restartGame();
         // Lose message
     } else if (latestTotal > tgtNumber) {
         $("#scoreBoardMsg").html("You overshot!");
         gamesLost++;
         $("#gamesLost").html("Games lost: " + gamesLost);
-        // Show Play Again button
-        $("#restartButton").fadeIn("slow", function () {
-            // Animation complete
-        });
+        //Restart game
+        restartGame();
     }
 }
 
@@ -151,8 +150,9 @@ function animateShuttle() {
     $("#shuttle").animate({ left: shuttleDistance }, 500);
 }
 
-pressToRestart = $('#restartButton');
-pressToRestart.on('click', function (evt) {
+function restartGame() {
+    // Wait 3 seconds before clearing
+    setTimeout(function () {
     // Reset won/lose message
     var blankDisplay = [];
     $("#scoreBoardMsg").html(blankDisplay);
@@ -169,10 +169,8 @@ pressToRestart.on('click', function (evt) {
     $("#latest").html(latestTotal);
     // Reset shuttle position counter
     shuttleDistance = 0;
-    // Hide Play Again button
-    $("#restartButton").fadeOut("slow", function () {
-    });
-})
+}, 3000);
+}
 
 
 
@@ -183,13 +181,8 @@ function displayUpdate(latest) {
 
 
 //FUNCTION CALLS FOR PROGRAM EXECUTION   
-// playGame()
-
-// function playGame() {
 chooseTgtNumber();
 crystal1 = chooseCrystalNumber();
 crystal2 = chooseCrystalNumber();
 crystal3 = chooseCrystalNumber();
 crystal4 = chooseCrystalNumber();
-
-// }

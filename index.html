@@ -27,19 +27,33 @@
 <body>
 
     <header>
-        <div class="row mt-3">
-            <div class="col-md-8">MOON SHOT</div>
-            <div id=gamesWon class="col-md-4">Games won: </div>
-        </div>
-        <div class="row mt-3">
-            <div id=subHeading class="col-md-8">A Crystal Collector Game</div>
-            <div id=gamesLost class="col-md-4">Games lost: </div>
-        </div>
+            <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div> Moon shot</div>
+                            </div>
+                            <div class="row">
+                                <div id=subHeading> A Crystal Collector Game</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-1">
+                        </div>
+                        <div class="col-sm-5">
+                            <div class="row">
+                                <div id=gamesWon>Games won:</div>
+                            </div>
+                            <div class="row">
+                                <div id=gamesLost>Games lost:</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
     </header>
 
     <!--Creating a div on the browser, to display the target number-->
     <!-- Incorporating Bootstrap row and columns, to enable clean formatting of earthtoMoon area -->
-        <div class="row mt-3">
+        <div class="row">
             <div class="col-md-1"> <img id="earth" alt="Earth" src="assets/images/earth.png" height=100px width=100px>
             </div>
             <div id="rocketToMoon" class="col-md-10"> <img id="shuttle" alt="Shuttle" src="assets/images/spaceshuttle.png" height=100px
@@ -52,12 +66,24 @@
         <div class="row mt-3"></div>
 
     <!--Bootstrap formatting for scoreBoard-->
-        <div class="row mt-3" id="scoreBoard">
-            <div class="col-md-2">Your score:</div>
-            <div id="latest" class="col-md-2"></div>
-            <div id="scoreBoardMsg" class="col-md-4"></div>
-            <div class="col-md-2">Target number:</div>
-            <div id="targetNumber" class="col-md-2"></div>
+        <div class="container">
+            <div class="row" id="scoreBoard">
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-7">Your score:</div>
+                        <div id="latest" class="col-sm-5"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                                    <div id="scoreBoardMsg" class="col-sm-12"></div>
+                                </div>
+                <div class="col-sm-4">
+                    <div class="row">
+                        <div class="col-sm-8">Target number:</div>
+                        <div id="targetNumber" class="col-sm-4"></div>
+                    </div>
+                </div>
+            </div>
         </div>
 
 
@@ -76,9 +102,7 @@
             <div id="Crystal4" class="col-md-2" data-crystalnumber="4">
                 <img alt="Crystal4" src="assets/images/OrangeTriangle.png" height=100px width=100px>
             </div>
-            <div class="col-md-2">
-                    <button type="button" id="restartButton" class="btn btn-primary">Play again</button>
-            </div>
+            <div class="col-md-2"></div>
             <!-- </div> -->
         </div>
 

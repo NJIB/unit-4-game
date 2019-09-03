@@ -8,7 +8,7 @@ header{
     font-family: 'Space Mono', monospace;
     font-weight: bold;
     font-size: 50px;
-    line-height: 30px;
+    line-height: 40px;
     color: silver;
     text-align: left;
     padding: 10px;
@@ -17,7 +17,6 @@ header{
 body{
     background-image: url("../images/spacebackground2.jpg");
     background-repeat: no-repeat;
-    /* background-size: 100% 600px; */
     background-size: 100%;
 }
 
@@ -79,7 +78,7 @@ footer{
 #latest {
     font-family: 'Mina', sans-serif;
     font-weight: bold;
-    font-size: 75px;
+    font-size: 40px;
     color: yellow;
     line-height: 25px;
 }
@@ -87,7 +86,7 @@ footer{
 #targetNumber {
     font-family: 'Mina', sans-serif;
     font-weight: bold;
-    font-size: 75px;
+    font-size: 40px;
     color: yellow;
     line-height: 25px;
 }
@@ -120,42 +119,22 @@ footer{
 }
 
 @media screen and (max-width: 979px){
-    /* .container{width: 100%;} */
-    .scoreBoard-container {
-        width: 90%;
-        margin: auto;
-        /* grid-template-columns: auto auto 20% auto auto; */
-    }   
+header {
+    font-size: 40px
+}
 }
 
 
 @media screen and (max-width: 767px){
-    /* .container{width: 100%;} */
-    .scoreBoard-container {
-        width: 90%;
-        margin: auto;
-        /* grid-template-columns: auto auto 20% auto auto; */
-        font-size: 20px;
+    header {
+        font-size: 30px
+    }
     }     
     
-    h1 {
-        font-size: 25px;
-    }
-
 @media screen and (max-width: 639px){
-    /* .container{width: 580px;} */
-    .scoreBoard-container {
-        width: 90%;
-        margin: auto;
-        /* grid-template-columns: auto auto 20% auto auto; */
-        font-size: 20px;
-    }   
-
-    h1 {
-        font-size: 25px;
+    header {
+        font-size: 30px
     }
-
-
 }
 
 
