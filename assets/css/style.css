@@ -4,10 +4,7 @@
 
 
 header{
-    /* display: grid;
-    grid-template-columns: 55% 45%, 55% 45%; */
     height: 120px;
-    /* font-family: 'Mina', sans-serif; */
     font-family: 'Space Mono', monospace;
     font-weight: bold;
     font-size: 50px;
@@ -35,7 +32,15 @@ footer{
     color: black;
 }
 
-#totalScore {
+#subHeading {
+    font-size: 30px;
+}
+
+#gamesWon {
+    font-size: 30px;
+}
+
+#gamesLost {
     font-size: 30px;
 }
 
@@ -115,21 +120,21 @@ footer{
 }
 
 @media screen and (max-width: 979px){
-    .container{width: 100%;}
+    /* .container{width: 100%;} */
     .scoreBoard-container {
         width: 90%;
         margin: auto;
-        grid-template-columns: auto auto 20% auto auto;
+        /* grid-template-columns: auto auto 20% auto auto; */
     }   
 }
 
 
 @media screen and (max-width: 767px){
-    .container{width: 100%;}
+    /* .container{width: 100%;} */
     .scoreBoard-container {
         width: 90%;
         margin: auto;
-        grid-template-columns: auto auto 20% auto auto;
+        /* grid-template-columns: auto auto 20% auto auto; */
         font-size: 20px;
     }     
     
@@ -138,11 +143,11 @@ footer{
     }
 
 @media screen and (max-width: 639px){
-    .container{width: 580px;}
+    /* .container{width: 580px;} */
     .scoreBoard-container {
         width: 90%;
         margin: auto;
-        grid-template-columns: auto auto 20% auto auto;
+        /* grid-template-columns: auto auto 20% auto auto; */
         font-size: 20px;
     }   
 

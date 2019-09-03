@@ -26,7 +26,7 @@ function chooseTgtNumber() {
 function chooseCrystalNumber(crystal) {
     var crystalRdmNmbr = 0;
     while (crystalRdmNmbr < 1 || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
-        crystalRdmNmbr = Math.floor(Math.random() * 11);
+        crystalRdmNmbr = Math.floor(Math.random() * 13);
     }
     crysNumLog.push(crystalRdmNmbr);
     //Log crystal values
@@ -43,9 +43,6 @@ function chooseCrystalNumber(crystal) {
 //     // console.log(crysDiv.attr("crystalnumber"));
 //     latestTotal = latestTotal + crystal1;
 //     console.log("latestTotal:" + latestTotal);
-//     //Move shuttle
-//     var shuttle = $("#shuttle");
-//     shuttle.animate({ left: "+=200px" }, 3000);
 //     //Print latestTotal to screen
 //     displayUpdate(latestTotal);
 //     checkWinLose();
@@ -118,7 +115,7 @@ function checkWinLose() {
     } else if (latestTotal === tgtNumber) {
         $("#scoreBoardMsg").html("You win!");
         gamesWon++;
-        $("#totalScore").html("Games won: " + gamesWon);
+        $("#gamesWon").html("Games won: " + gamesWon);
         // Show Play Again button
         $("#restartButton").fadeIn("slow", function () {
             // Animation complete
@@ -126,6 +123,8 @@ function checkWinLose() {
         // Lose message
     } else if (latestTotal > tgtNumber) {
         $("#scoreBoardMsg").html("You overshot!");
+        gamesLost++;
+        $("#gamesLost").html("Games lost: " + gamesLost);
         // Show Play Again button
         $("#restartButton").fadeIn("slow", function () {
             // Animation complete
@@ -134,13 +133,16 @@ function checkWinLose() {
 }
 
 function animateShuttle() {
+    // Log starting point for shuttle
     var rocketToMoonPosition = $("#rocketToMoon").position();
     console.log("rocketToMoonContainer position:" + rocketToMoonPosition.left + rocketToMoonPosition.top);
+    // Log end point for shuttle (to calculate how far it moves with each crystal click)
     var moonContPosition = $("#moonContainer").position();
     console.log("moonContainer position:" + moonContPosition.left + moonContPosition.top);
+    // Logs distance shuttle has to travel
     var rocketTrackLength = parseInt((moonContPosition.left - rocketToMoonPosition.left) - 80);
     console.log("rocketTrackLength:" + rocketTrackLength);
-    //Move shuttle
+    // Animate shuttle with each click
     var shuttlePosition = $("#shuttle").position();
     console.log("Shuttle position:" + shuttlePosition.left);
     shuttleDistance = parseInt((latestTotal / tgtNumber) * rocketTrackLength);
@@ -176,8 +178,8 @@ pressToRestart.on('click', function (evt) {
 
 
 function displayUpdate(latest) {
-        $("#latest").html(latest);
-    }
+    $("#latest").html(latest);
+}
 
 
 //FUNCTION CALLS FOR PROGRAM EXECUTION   
