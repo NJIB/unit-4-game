@@ -25,7 +25,7 @@ function chooseTgtNumber() {
     $("#targetNumber").html(tgtNumber);
 }
 
-    // Random number assigned to each of the 4 crystals
+// Random number assigned to each of the 4 crystals
 function chooseCrystalNumber(crystal) {
     var crystalRdmNmbr = 0;
     while (crystalRdmNmbr < 1 || crysNumLog.indexOf(crystalRdmNmbr) > -1) {
@@ -39,12 +39,14 @@ function chooseCrystalNumber(crystal) {
     crystal = crystalRdmNmbr;
     return crystal;
 }
+
+// (COULD NOT GET THE DATA ATTRIBUTE WORKING - HENCE THE 4 ITERATIONS OF THE CODE BELOW)
 // crysDiv = $('.crystalsDiv');
 // //When crystal is clicked...
 // crysDiv.on('click', function (evt) {
 //     //Add value of crystal to the latestTotal
 //     // console.log(crysDiv.attr("crystalnumber"));
-//     latestTotal = latestTotal + crystal1;
+//     latestTotal = latestTotal + crystal;
 //     console.log("latestTotal:" + latestTotal);
 //     //Print latestTotal to screen
 //     displayUpdate(latestTotal);
@@ -116,16 +118,16 @@ function checkWinLose() {
     if (latestTotal < tgtNumber) {
         //Win message
     } else if (latestTotal === tgtNumber) {
-        $("#scoreBoardMsg").html("You win!");
+        $("#scoreBoardMsg").html("One small step for man...");
         gamesWon++;
-        $("#gamesWon").html("Games won: " + gamesWon);
+        $("#gamesWon").html("Missions completed: " + gamesWon);
         //Restart game
         restartGame();
         // Lose message
     } else if (latestTotal > tgtNumber) {
-        $("#scoreBoardMsg").html("You overshot!");
+        $("#scoreBoardMsg").html("Houston we have a problem!");
         gamesLost++;
-        $("#gamesLost").html("Games lost: " + gamesLost);
+        $("#gamesLost").html("Lost in space: " + gamesLost);
         //Restart game
         restartGame();
     }
@@ -138,14 +140,11 @@ function animateShuttle() {
     // Log end point for shuttle (to calculate how far it moves with each crystal click)
     var moonContPosition = $("#moonContainer").position();
     console.log("moonContainer position:" + moonContPosition.left + moonContPosition.top);
-    // Logs distance shuttle has to travel
+    // Logs distance shuttle has to travel (distance between earth and moon)
     var rocketTrackLength = parseInt((moonContPosition.left - rocketToMoonPosition.left) - 80);
-    console.log("rocketTrackLength:" + rocketTrackLength);
     // Animate shuttle with each click
     var shuttlePosition = $("#shuttle").position();
-    console.log("Shuttle position:" + shuttlePosition.left);
     shuttleDistance = parseInt((latestTotal / tgtNumber) * rocketTrackLength);
-    console.log("ShuttleDistance:" + shuttleDistance);
     var shuttle = $("#shuttle");
     $("#shuttle").animate({ left: shuttleDistance }, 500);
 }
@@ -153,23 +152,26 @@ function animateShuttle() {
 function restartGame() {
     // Wait 3 seconds before clearing
     setTimeout(function () {
-    // Reset won/lose message
-    var blankDisplay = [];
-    $("#scoreBoardMsg").html(blankDisplay);
-    // Select new target and crystal numbers
-    chooseTgtNumber();
-    crystal1 = chooseCrystalNumber();
-    crystal2 = chooseCrystalNumber();
-    crystal3 = chooseCrystalNumber();
-    crystal4 = chooseCrystalNumber();
-    // Move shuttle back to starting position
-    $("#shuttle").animate({ left: "-0px" }, 2000);
-    //Reset scoreboard
-    latestTotal = 0;
-    $("#latest").html(latestTotal);
-    // Reset shuttle position counter
-    shuttleDistance = 0;
-}, 3000);
+        // Move shuttle back to starting position
+        $("#shuttle").animate({ left: "-0px" }, 2000);
+        // Reset shuttle position counter
+        shuttleDistance = 0;
+        // Reset won/lose message
+        var blankDisplay = [];
+        $("#scoreBoardMsg").html(blankDisplay);
+        // Clear log of crystal numbers
+        crysNumLog = [];
+        // Select new target and crystal numbers
+        chooseTgtNumber();
+        crystal1 = chooseCrystalNumber();
+        crystal2 = chooseCrystalNumber();
+        crystal3 = chooseCrystalNumber();
+        crystal4 = chooseCrystalNumber();
+        //Reset scoreboard
+        latestTotal = 0;
+        $("#latest").html(latestTotal);
+
+    }, 3000);
 }
 
 

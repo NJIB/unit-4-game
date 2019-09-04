@@ -17,7 +17,7 @@ header{
 body{
     background-image: url("../images/spacebackground2.jpg");
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: 100% 1600px;
 }
 
 footer{
@@ -32,7 +32,9 @@ footer{
 }
 
 #subHeading {
-    font-size: 30px;
+    font-size: 25px;
+    font-style: oblique;
+    color: grey;
 }
 
 #gamesWon {
@@ -65,14 +67,13 @@ footer{
 #scoreBoard {
     position: relative;
     top:100px;
-    height: 60px;
+    height: 100px;
     box-sizing: border-box;
     text-align: center;
     font-size: 25px;
     font-family: 'Mina', sans-serif;
     font-weight: bold;
     color: yellow;
-    line-height: 25px;
 }
 
 #latest {
@@ -80,7 +81,6 @@ footer{
     font-weight: bold;
     font-size: 40px;
     color: yellow;
-    line-height: 25px;
 }
 
 #targetNumber {
@@ -88,53 +88,44 @@ footer{
     font-weight: bold;
     font-size: 40px;
     color: yellow;
-    line-height: 25px;
 }
 
 #scoreBoardMsg{
-    font-size: 50px;
+    font-size: 30px;
     color: orange;
     font-weight: bold;
     text-align: center;
-    line-height: 50px;
-}
-
-.crystalsDiv {
-    display: grid;
-    grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: auto;
-    box-sizing: border-box;
-    margin: 50px 50px 100px 50px;
-    font-size: 35px;
-    color: yellow;
-}
-
-#restartButton {
-    height: 100px;
-    width: 100px;
-    text-align: center;
-    font-size: 25px;
-    font-weight: bold;
-    display: none;
+    line-height: 30px;
 }
 
 @media screen and (max-width: 979px){
-header {
-    font-size: 40px
-}
+    header { font-size: 40px; }
+    #scoreBoardMsg { font-size: 30px;}
+    #scoreBoard { font-size: 25px;
+        line-height: 30px; }
+    #gamesWon { font-size: 25px; }
+    #gamesLost { font-size: 25px; }
+    
 }
 
 
 @media screen and (max-width: 767px){
-    header {
-        font-size: 30px
-    }
+    header { font-size: 30px; }
+    #subHeading { font-size: 15px; }
+    #scoreBoardMsg { font-size: 20px;}
+    #scoreBoard { font-size: 15px;
+        line-height: 20px; }
+    #gamesWon { font-size: 15px; }
+    #gamesLost { font-size: 15px; }
     }     
     
 @media screen and (max-width: 639px){
-    header {
-        font-size: 30px
-    }
+    header { font-size: 20px; }
+    #scoreBoardMsg { font-size: 20px;}
+    #scoreBoard { font-size: 15px;
+                    line-height: 15px; }
+    #gamesWon { font-size: 20px; }
+    #gamesLost { font-size: 20px; }
 }
 
 
